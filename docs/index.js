@@ -2,15 +2,26 @@
 let positive = 0
 let negative = 0
 
+const sizeInMB = 1;
+const bytes = sizeInMB * 1024 * 1024; // 1 MB in bytes
+const binaryData = new Uint8Array(bytes);
+
+// Fill the binary data with random values
+for (let i = 0; i < binaryData.length; i++) {
+  binaryData[i] = Math.floor(Math.random() * 256); // Random byte value between 0 and 255
+}
+
 let testConnection = async function () {
   try {
     let r = (Math.random() + 1).toString(36).substring(7);
     await fetch(`http://${r}.fastly.zync.co/`, {
+      method: 'POST',
       mode: 'no-cors',
       cache: 'no-cache',
       headers: {
         'Keep-Alive': 'timeout=5, max=1'
-      }
+      },
+      body: binaryData
     })
   } catch (e) {
     console.log('Error:', e)
