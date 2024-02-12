@@ -16,6 +16,8 @@ func main() {
 	for i := 0; i < *attempts; i++ {
 		connectAndTest()
 	}
+
+	fmt.Println("Test complete.")
 }
 
 func connectAndTest() {
