@@ -4,10 +4,13 @@ let negative = 0
 
 let testConnection = async function () {
   try {
-    await fetch('https://www.fastly.com', {
+    let r = (Math.random() + 1).toString(36).substring(7);
+    await fetch(`http://${r}.fastly.zync.co/`, {
       mode: 'no-cors',
       cache: 'no-cache',
-
+      headers: {
+        'Keep-Alive': 'timeout=5, max=1'
+      }
     })
   } catch (e) {
     console.log('Error:', e)
