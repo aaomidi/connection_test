@@ -4,7 +4,7 @@ let negative = 0
 
 let testConnection = async function () {
   try {
-    await fetch('https://www.linkedin.com', {
+    await fetch('https://www.fastly.com', {
       mode: 'no-cors',
       cache: 'no-cache',
 
