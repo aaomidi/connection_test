@@ -14,7 +14,7 @@ let testConnection = async function () {
 
 let loopTest = async function () {
   let element = document.getElementById('log')
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 50; i++) {
     let result = await testConnection()
     let text = `Test ${i}: `
 
