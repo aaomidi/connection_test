@@ -2,8 +2,8 @@
 let positive = 0
 let negative = 0
 
-const sizeInMB = 1;
-const bytes = sizeInMB * 1024 * 1024; // 1 MB in bytes
+const sizeInMB = 0.5;
+const bytes = sizeInMB * 1024 * 1024; // 512 KB in bytes
 
 let getRandomData = function () {
   const binaryData = new Uint8Array(bytes);
