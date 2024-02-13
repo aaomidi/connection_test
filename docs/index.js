@@ -13,8 +13,7 @@ for (let i = 0; i < binaryData.length; i++) {
 
 let testConnection = async function () {
   try {
-    let r = (Math.random() + 1).toString(36).substring(7);
-    await fetch(`http://${r}.fastly.zync.co/`, {
+    await fetch('https://fastly.com/', {
       method: 'POST',
       mode: 'no-cors',
       cache: 'no-cache',
