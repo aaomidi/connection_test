@@ -4,11 +4,14 @@ let negative = 0
 
 const sizeInMB = 1;
 const bytes = sizeInMB * 1024 * 1024; // 1 MB in bytes
-const binaryData = new Uint8Array(bytes);
 
-// Fill the binary data with random values
-for (let i = 0; i < binaryData.length; i++) {
-  binaryData[i] = Math.floor(Math.random() * 256); // Random byte value between 0 and 255
+let getRandomData = function () {
+  const binaryData = new Uint8Array(bytes);
+  // Fill the binary data with random values
+  for (let i = 0; i < binaryData.length; i++) {
+    binaryData[i] = Math.floor(Math.random() * 256); // Random byte value between 0 and 255
+  }
+  return binaryData
 }
 
 let testConnection = async function () {
@@ -20,7 +23,7 @@ let testConnection = async function () {
       headers: {
         'Keep-Alive': 'timeout=5, max=1'
       },
-      body: binaryData
+      body: getRandomData()
     })
   } catch (e) {
     console.log('Error:', e)
