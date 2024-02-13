@@ -21,8 +21,13 @@ func main() {
 }
 
 func connectAndTest() {
-	_, err := http.Get(*host)
+	req, err := http.NewRequest("GET", *host, nil)
 	if err != nil {
+		panic(err)
+	}
+	req.Header.Set("User-Agent", "https://github.com/aaomidi/connection_test")
+
+	if _, err := http.DefaultClient.Do(req); err != nil {
 		fmt.Println(err)
 	}
 }
